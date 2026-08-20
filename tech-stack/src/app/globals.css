@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+
+  /* Surfaces */
+  --surface-page: #f9f9f7;
+  --surface-1: #ffffff;
+  --surface-2: #f4f4f1;
+  --surface-3: #ebebe6;
+  --surface-overlay: rgba(11, 11, 11, 0.04);
+
+  /* Ink */
+  --text-primary: #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted: #898781;
+
+  /* Borders */
+  --border-hairline: rgba(11, 11, 11, 0.1);
+  --border-strong: rgba(11, 11, 11, 0.16);
+
+  /* Brand */
+  --brand: #2a78d6;
+  --brand-strong: #184f95;
+  --brand-soft: #e8f0fc;
+
+  /* Categorical node palette (validated, colorblind-safe ordering) */
+  --node-client: #4a3aa7;
+  --node-gateway: #eb6834;
+  --node-service: #2a78d6;
+  --node-store: #1baf7a;
+  --node-queue: #eda100;
+  --node-ai: #e87ba4;
+  --node-accent: #e34948;
+  --node-default: #6b6a65;
+
+  /* Status */
+  --status-good: #0ca30c;
+  --status-warning: #fab219;
+  --status-serious: #ec835a;
+  --status-critical: #d03b3b;
+
+  /* Diagram connectors */
+  --diagram-line: #8a8880;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --surface-page: #0d0d0d;
+  --surface-1: #171716;
+  --surface-2: #1e1e1c;
+  --surface-3: #272724;
+  --surface-overlay: rgba(255, 255, 255, 0.06);
+
+  --text-primary: #ffffff;
+  --text-secondary: #c3c2b7;
+  --text-muted: #898781;
+
+  --border-hairline: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.18);
+
+  --brand: #3987e5;
+  --brand-strong: #86b6ef;
+  --brand-soft: rgba(57, 135, 229, 0.14);
+
+  --node-client: #9085e9;
+  --node-gateway: #d95926;
+  --node-service: #3987e5;
+  --node-store: #199e70;
+  --node-queue: #c98500;
+  --node-ai: #d55181;
+  --node-accent: #e66767;
+  --node-default: #8f8e88;
+
+  --status-good: #0ca30c;
+  --status-warning: #fab219;
+  --status-serious: #ec835a;
+  --status-critical: #d03b3b;
+
+  --diagram-line: #7d7c75;
+}
+
+@theme inline {
+  --color-surface-page: var(--surface-page);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-surface-overlay: var(--surface-overlay);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --color-border-hairline: var(--border-hairline);
+  --color-border-strong: var(--border-strong);
+
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-soft: var(--brand-soft);
+
+  --color-node-client: var(--node-client);
+  --color-node-gateway: var(--node-gateway);
+  --color-node-service: var(--node-service);
+  --color-node-store: var(--node-store);
+  --color-node-queue: var(--node-queue);
+  --color-node-ai: var(--node-ai);
+  --color-node-accent: var(--node-accent);
+  --color-node-default: var(--node-default);
+
+  --color-status-good: var(--status-good);
+  --color-status-warning: var(--status-warning);
+  --color-status-serious: var(--status-serious);
+  --color-status-critical: var(--status-critical);
+
+  --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+body {
+  background: var(--surface-page);
+  color: var(--text-primary);
+}
+
+* {
+  border-color: var(--border-hairline);
+}
+
+::selection {
+  background: var(--brand-soft);
+  color: var(--text-primary);
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, var(--border-hairline) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-hairline) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
