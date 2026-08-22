@@ -65,3 +65,27 @@ export type GroupMeta = {
   title: string;
   description: string;
 };
+
+export type CodeExample = {
+  label: string;
+  code: string;
+};
+
+export type TableSpec = {
+  headers: string[];
+  rows: string[][];
+};
+
+export type DeepDiveSection = {
+  slug: string;
+  number: string;
+  title: string;
+  kicker: string;
+  paragraphs: string[];
+  diagram?: FlowDiagram;
+  diagramCaption?: string;
+  code?: CodeExample;
+  table?: TableSpec;
+  callout?: { label: string; text: string };
+  terms: string[];
+};

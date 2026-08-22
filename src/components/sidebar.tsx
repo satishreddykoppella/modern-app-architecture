@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutGrid } from "lucide-react";
+import { LayoutGrid, BookOpen } from "lucide-react";
 import { groups } from "@/data/groups";
 import { getLayersByGroup } from "@/data/layers";
 
@@ -46,6 +46,23 @@ export function Sidebar() {
                   </Link>
                 );
               })}
+              {group.id === "frontend" && (
+                <Link
+                  href="/layers/web-frontend/deep-dive"
+                  className={`group flex items-center gap-2.5 rounded-lg px-3 py-1.5 text-sm transition-colors ${
+                    pathname === "/layers/web-frontend/deep-dive"
+                      ? "bg-brand-soft text-brand-strong font-medium"
+                      : "text-text-secondary hover:bg-surface-2 hover:text-text-primary"
+                  }`}
+                >
+                  <BookOpen
+                    className={`h-3.5 w-3.5 shrink-0 ${
+                      pathname === "/layers/web-frontend/deep-dive" ? "text-brand-strong" : "text-text-muted group-hover:text-text-secondary"
+                    }`}
+                  />
+                  <span className="truncate">Browser &amp; JS Deep Dive</span>
+                </Link>
+              )}
             </div>
           </div>
         );

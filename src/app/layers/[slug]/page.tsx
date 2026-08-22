@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen, Sparkles } from "lucide-react";
 import { getAdjacentLayers, getLayer, layers } from "@/data/layers";
 import { getGroup } from "@/data/groups";
 import { FlowDiagram } from "@/components/diagrams/flow-diagram";
@@ -54,6 +54,24 @@ export default async function LayerPage({ params }: { params: Promise<{ slug: st
       </div>
 
       <p className="mb-10 max-w-3xl text-lg leading-relaxed text-text-secondary">{layer.summary}</p>
+
+      {layer.slug === "web-frontend" && (
+        <Link
+          href="/layers/web-frontend/deep-dive"
+          className="mb-10 flex items-center gap-4 rounded-2xl border border-brand/20 bg-brand-soft p-5 transition-colors hover:border-brand/40"
+        >
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-surface-1 text-brand-strong">
+            <BookOpen className="h-5 w-5" />
+          </span>
+          <span className="min-w-0 flex-1">
+            <span className="block text-sm font-semibold text-text-primary">Browser &amp; JS Fundamentals — Deep Dive</span>
+            <span className="block text-sm text-text-secondary">
+              17 sections on the rendering pipeline, event loop, workers, networking, CORS, auth, caching, and security underneath this layer.
+            </span>
+          </span>
+          <ArrowRight className="h-4 w-4 shrink-0 text-brand-strong" />
+        </Link>
+      )}
 
       {layer.diagram && (
         <section className="mb-10">
